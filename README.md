@@ -4,7 +4,7 @@ Membuat website asal sekolah
 ## Wireframe Website  
 
   
-  <img width="1168" height="1640" alt="image" src="https://github.com/user-attachments/assets/a92f4e03-e472-4bb3-b9b4-8068afc33bcb" /> <img width="1168" height="1640" alt="image" src="https://github.com/user-attachments/assets/a8ddebf6-320a-4f4e-bf7e-2072f22f1a1f" />
+  <img width="1168" height="1640" alt="image" src="https://github.com/user-attachments/assets/a92f4e03-e472-4bb3-b9b4-8068afc33bcb" > <img width="1168" height="1640" alt="image" src="https://github.com/user-attachments/assets/a8ddebf6-320a-4f4e-bf7e-2072f22f1a1f" />
 
 
 
