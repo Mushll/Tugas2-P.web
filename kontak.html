@@ -118,23 +118,23 @@
       transform: translateY(-2px);
     }
 
-    /* ================= MAIN CONTENT: GRID ATAS ================= */
+    /* ================= MAIN CONTENT: GRID 2 KOLOM ================= */
     .contact-main-section {
-      padding: 45px 0 30px;
+      padding: 45px 0 40px;
     }
 
     .contact-grid {
       display: grid;
       grid-template-columns: 1.1fr 1fr;
       gap: 36px;
-      align-items: start;
+      align-items: stretch; /* Membuat kedua kolom sama panjang */
     }
 
-    /* Kolom Kiri: Kartu Kontak Kami & Hubungi Kami */
+    /* Sisi Kiri: Tumpukan Kartu Berurutan */
     .info-cards-left {
       display: flex;
       flex-direction: column;
-      gap: 24px;
+      gap: 20px;
     }
 
     .green-card {
@@ -142,7 +142,7 @@
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.25);
       border-radius: 18px;
-      padding: 36px;
+      padding: 24px 30px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
@@ -152,24 +152,85 @@
       box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
     }
 
-    .green-card h2 {
-      font-size: 2.2rem;
+    .green-card h2, .green-card h3 {
+      font-size: 1.6rem;
       font-weight: 800;
       color: #172c0e;
-      letter-spacing: 1.5px;
-      margin-bottom: 16px;
+      letter-spacing: 1.2px;
+      margin-bottom: 10px;
       text-transform: uppercase;
       text-shadow: 0 1px 2px rgba(0,0,0,0.08);
     }
 
     .green-card p {
-      font-size: 1rem;
-      line-height: 1.7;
+      font-size: 0.95rem;
+      line-height: 1.6;
       color: #f1f8ed;
       font-weight: 500;
     }
 
-    /* Kolom Kanan: Form Kontak Sesuai Kriteria Dosen */
+    /* Kotak 2: Detail Kontak (Maps, Telp, Email) */
+    .contact-direct-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .contact-row i {
+      font-size: 1.6rem;
+      color: #172c0e;
+      width: 28px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    /* Kotak 4: Jam Operasional */
+    .operational-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .operational-header i {
+      font-size: 2rem;
+      color: #172c0e;
+    }
+
+    .operational-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-left: 6px;
+    }
+
+    .operational-list li {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .operational-list li::before {
+      content: "•";
+      font-size: 1.4rem;
+      color: #ffffff;
+      line-height: 0;
+    }
+
+    /* Sisi Kanan: Form Kontak Menyesuaikan Tinggi */
     .form-card {
       background: rgba(255, 255, 255, 0.22);
       backdrop-filter: blur(12px);
@@ -177,6 +238,9 @@
       border-radius: 20px;
       padding: 34px;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
     }
 
     .form-card h3 {
@@ -188,11 +252,24 @@
       text-transform: uppercase;
     }
 
+    .form-card form {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+
     .form-group {
       margin-bottom: 16px;
       display: flex;
       flex-direction: column;
       gap: 6px;
+    }
+
+    .form-group.grow {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
 
     .form-group label {
@@ -224,15 +301,16 @@
       box-shadow: 0 0 0 3px rgba(59, 90, 43, 0.2);
     }
 
-    .form-group textarea {
-      resize: vertical;
-      min-height: 110px;
+    .form-group.grow textarea {
+      flex: 1;
+      resize: none;
+      min-height: 160px;
     }
 
     /* KRITERIA: button */
     .form-card button {
       width: 100%;
-      padding: 13px;
+      padding: 14px;
       background: #345229;
       color: #ffffff;
       border: none;
@@ -243,7 +321,7 @@
       cursor: pointer;
       transition: all 0.3s ease;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-      margin-top: 6px;
+      margin-top: 10px;
     }
 
     .form-card button:hover {
@@ -252,103 +330,12 @@
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
     }
 
-    /* ================= GRID BAWAH: JAM OPERASIONAL & DETAIL ================= */
-    .contact-bottom-section {
-      padding: 15px 0 40px;
-    }
-
-    .bottom-cards-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-    }
-
-    .detail-card {
-      background: rgba(76, 114, 69, 0.52);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      border-radius: 18px;
-      padding: 30px;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.07);
-    }
-
-    /* Kartu Jam Operasional */
-    .operational-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
-    }
-
-    .operational-header i {
-      font-size: 2.8rem;
-      color: #172c0e;
-    }
-
-    .operational-header h3 {
-      font-size: 1.45rem;
-      font-weight: 800;
-      color: #172c0e;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .operational-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      padding-left: 10px;
-    }
-
-    .operational-list li {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: #ffffff;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .operational-list li::before {
-      content: "•";
-      font-size: 1.6rem;
-      color: #ffffff;
-      line-height: 0;
-    }
-
-    /* Kartu Info Kontak Sampingnya */
-    .contact-direct-list {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      justify-content: center;
-      height: 100%;
-    }
-
-    .contact-row {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      color: #ffffff;
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .contact-row i {
-      font-size: 2.2rem;
-      color: #172c0e;
-      width: 38px;
-      text-align: center;
-      flex-shrink: 0;
-    }
-
     /* ================= BARIS LOKASI & SOSMED ================= */
     .quick-info-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 0 45px;
+      padding: 15px 0 45px;
     }
 
     .location-link {
@@ -398,7 +385,7 @@
       background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
     }
 
-    /* ================= FOOTER ================= */
+    /* ================= FOOTER PERSISTEN ================= */
     footer {
       background-color: #7b9968;
       border-top: 3px solid rgba(0,0,0,0.06);
@@ -513,7 +500,7 @@
 
     /* Responsive Design */
     @media (max-width: 900px) {
-      .contact-grid, .bottom-cards-grid, .footer-content-grid {
+      .contact-grid, .footer-content-grid {
         grid-template-columns: 1fr;
       }
       .quick-info-bar {
@@ -546,24 +533,59 @@
     </div>
   </header>
 
-  <!-- ================= SECTION UTAMA: INFO & FORM KONTAK ================= -->
+  <!-- ================= MAIN SECTION ================= -->
   <section class="contact-main-section container">
     <div class="contact-grid">
       
-      <!-- Sisi Kiri: 2 Kotak Info -->
+      <!-- SISI KIRI: URUTAN KARTU SESUAI REQUEST -->
       <div class="info-cards-left">
+        
+        <!-- 1. KOTAK KONTAK KAMI -->
         <div class="green-card reveal">
           <h2>KONTAK KAMI</h2>
           <p>Informasi sekolah, kebutuhan siswa, dan kerja sama.</p>
         </div>
 
+        <!-- 2. KOTAK NOMOR, MAPS, & EMAIL (DITARUH DI BAWAH KONTAK KAMI) -->
+        <div class="green-card reveal">
+          <div class="contact-direct-list">
+            <div class="contact-row">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Jl. SPN PMJ, Desa Srogol, Cigombong, Bogor</span>
+            </div>
+            <div class="contact-row">
+              <i class="fa-solid fa-phone"></i>
+              <span>(0251) 8224388</span>
+            </div>
+            <div class="contact-row">
+              <i class="fa-solid fa-envelope"></i>
+              <span>smaitalkahfi@gmail.com</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. KOTAK HUBUNGI KAMI -->
         <div class="green-card reveal">
           <h2>HUBUNGI KAMI</h2>
           <p>Kami membuka pintu bagi alumni, individu, lembaga pendidikan formal dan nonformal untuk berkolaborasi mewujudkan generasi penerus bangsa.</p>
         </div>
+
+        <!-- 4. KOTAK JAM OPRASIONAL (PALING BAWAH DI KIRI) -->
+        <div class="green-card reveal">
+          <div class="operational-header">
+            <i class="fa-regular fa-clock"></i>
+            <h3>JAM OPRASIONAL</h3>
+          </div>
+          <ul class="operational-list">
+            <li>Minggu: Libur</li>
+            <li>Senin - Sabtu: 8AM - 3PM</li>
+            <li>Jumat: 8AM - 3PM</li>
+          </ul>
+        </div>
+
       </div>
 
-      <!-- Sisi Kanan: Form Kontak (Memenuhi Ketentuan Dosen) -->
+      <!-- SISI KANAN: FORM KONTAK (TINGGINYA MENYESUAIKAN DENGAN KIRI) -->
       <div class="form-card reveal">
         <h3>Kirim Pesan</h3>
         
@@ -588,54 +610,16 @@
             <input type="text" id="subjek" name="subjek" placeholder="Perihal pesan" required>
           </div>
 
-          <!-- KRITERIA: <textarea> -->
-          <div class="form-group">
+          <!-- KRITERIA: <textarea> (Diatur elastis agar sejajar ke bawah) -->
+          <div class="form-group grow">
             <label for="pesan">Pesan</label>
-            <textarea id="pesan" name="pesan" rows="4" placeholder="Tuliskan pesan atau pertanyaan Anda di sini..." required></textarea>
+            <textarea id="pesan" name="pesan" placeholder="Tuliskan pesan atau pertanyaan Anda di sini..." required></textarea>
           </div>
 
           <!-- KRITERIA: <button> -->
           <button type="submit"><i class="fa-solid fa-paper-plane" style="margin-right: 8px;"></i> Kirim Pesan</button>
         </form>
 
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= SECTION BAWAH: JAM OPERASIONAL & KONTAK LANGSUNG ================= -->
-  <section class="contact-bottom-section container">
-    <div class="bottom-cards-grid">
-      
-      <!-- Kotak Jam Oprasional -->
-      <div class="detail-card reveal">
-        <div class="operational-header">
-          <i class="fa-regular fa-clock"></i>
-          <h3>JAM OPRASIONAL</h3>
-        </div>
-        <ul class="operational-list">
-          <li>Minggu: Libur</li>
-          <li>Senin - Sabtu: 8AM - 3PM</li>
-          <li>Jumat: 8AM - 3PM</li>
-        </ul>
-      </div>
-
-      <!-- Kotak Alamat & Kontak -->
-      <div class="detail-card reveal">
-        <div class="contact-direct-list">
-          <div class="contact-row">
-            <i class="fa-solid fa-location-dot"></i>
-            <span>Jl. SPN PMJ, Desa Srogol, Cigombong, Bogor</span>
-          </div>
-          <div class="contact-row">
-            <i class="fa-solid fa-phone"></i>
-            <span>(0251) 8224388</span>
-          </div>
-          <div class="contact-row">
-            <i class="fa-solid fa-envelope"></i>
-            <span>smaitalkahfi@gmail.com</span>
-          </div>
-        </div>
       </div>
 
     </div>
