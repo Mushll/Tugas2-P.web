@@ -235,9 +235,80 @@
       width: 100%;
     }
 
+    /* ================= SECTION VISI & MISI ================= */
+    .visi-misi-section {
+      padding: 30px 0 20px;
+    }
+
+    .visi-misi-box {
+      border: 2px dashed rgba(255, 255, 255, 0.45);
+      border-radius: 20px;
+      padding: 32px 36px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(4px);
+    }
+
+    .vm-col h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #243d1a;
+      letter-spacing: 1.5px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .vm-col p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: #223318;
+      font-weight: 500;
+    }
+
+    .vm-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .vm-col ul li {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: #223318;
+      font-weight: 500;
+    }
+
+    /* ================= SECTION TITLE: KILAS AL - KAHFI ================= */
+    .section-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-top: 40px;
+      margin-bottom: 24px;
+    }
+
+    .section-title-wrap h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #223a17;
+      letter-spacing: 1.5px;
+      white-space: nowrap;
+    }
+
+    .section-title-wrap .line {
+      flex: 1;
+      height: 1px;
+      background: rgba(43, 61, 34, 0.35);
+    }
+
     /* ================= CAROUSEL / SLIDER KEGIATAN ================= */
     .activities-section {
-      padding: 40px 0 60px;
+      padding: 10px 0 60px;
     }
 
     .cards-grid {
@@ -262,6 +333,16 @@
       box-shadow: 0 12px 28px rgba(0,0,0,0.12);
     }
 
+    /* Judul Kartu Kegiatan (EDUFEST, OSPETA, PPM) */
+    .activity-card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: #172b0e;
+      letter-spacing: 0.5px;
+      margin: 12px 0 8px;
+      text-transform: uppercase;
+    }
+
     /* Slide Container di Tiap Kartu */
     .slider-container {
       position: relative;
@@ -269,7 +350,7 @@
       height: 200px;
       border-radius: 14px;
       overflow: hidden;
-      margin-bottom: 16px;
+      margin-bottom: 8px;
     }
 
     .slides {
@@ -512,7 +593,7 @@
 
     /* Responsive Design */
     @media (max-width: 900px) {
-      .hero-grid, .quote-card, .footer-content-grid {
+      .hero-grid, .quote-card, .footer-content-grid, .visi-misi-box {
         grid-template-columns: 1fr;
       }
       .cards-grid {
@@ -541,7 +622,6 @@
         <ul class="nav-menu">
           <li><a href="index.html" class="nav-link active">HOME</a></li>
           <li><a href="jurusan.html" class="nav-link">JURUSAN</a></li>
-          <li><a href="profil.html" class="nav-link">PROFIL</a></li>
           <li><a href="prestasi.html" class="nav-link">PRESTASI</a></li>
           <li><a href="kontak.html" class="btn-contact">KONTAK</a></li>
         </ul>
@@ -580,8 +660,36 @@
     <div class="quote-divider"></div>
   </section>
 
+  <!-- ================= SECTION VISI & MISI ================= -->
+  <section class="visi-misi-section container">
+    <div class="visi-misi-box reveal">
+      <!-- Kolom Visi -->
+      <div class="vm-col">
+        <h3><i class="fa-solid fa-bullseye"></i> VISI</h3>
+        <p>Menjadi sekolah unggul dalam membentuk kader muslim pemimpin dunia (dengan landasan nilai karakter Shalih, Muslih, dan Qudwah, serta prinsip Bener / lurus akidah, Pinter / paham ilmu secara mendalam, dan Bageur / berakhlak mulia).</p>
+      </div>
+
+      <!-- Kolom Misi -->
+      <div class="vm-col">
+        <h3><i class="fa-solid fa-list-check"></i> MISI</h3>
+        <ul>
+          <li>- Menyelenggarakan pendidikan bermutu yang berlandaskan nilai Islam secara spiritual, intelektual, dan moral.</li>
+          <li>- Mengelola pesantren secara profesional untuk menciptakan lingkungan yang tertib, nyaman, serta edukatif.</li>
+          <li>- Menjalin hubungan dan kerja sama yang harmonis dengan masyarakat serta berbagai lembaga terkait.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= CAROUSEL / SLIDER 3 FOTO KEGIATAN ================= -->
   <section class="activities-section container">
+    
+    <!-- Judul Section: KILAS AL - KAHFI -->
+    <div class="section-title-wrap reveal">
+      <h2>KILAS AL - KAHFI</h2>
+      <div class="line"></div>
+    </div>
+
     <div class="cards-grid">
       
       <!-- Kartu 1: Education Festival -->
@@ -595,6 +703,7 @@
           <button class="slider-btn next-btn" onclick="moveSlide('slider1', 1)">❯</button>
           <div class="slider-dots"></div>
         </div>
+        <h3>EDUFEST</h3>
         <p>Kegiatan Education Festival yang diselenggarakan oleh Ospeta dengan mengundang berbagai tokoh dan alumni inspiratif juga menyelenggarakan berbagai lomba yang menarik dan edukatif.</p>
       </div>
 
@@ -611,6 +720,7 @@
           <button class="slider-btn next-btn" onclick="moveSlide('slider2', 1)">❯</button>
           <div class="slider-dots"></div>
         </div>
+        <h3>OSPETA</h3>
         <p>OSPETA (Organisasi Santri Terpadu Al-Kahfi) adalah organisasi yang dibentuk untuk membina para siswa agar dapat mengasah bidang manajerial dan ide kreatifnya untuk membuat acara yang dapat menghibur adik kelasnya.</p>
       </div>
 
@@ -626,6 +736,7 @@
           <button class="slider-btn next-btn" onclick="moveSlide('slider3', 1)">❯</button>
           <div class="slider-dots"></div>
         </div>
+        <h3>PPM</h3>
         <p>PPM (Praktek Pengenalan Masyarakat) adalah kegiatan mengabdi untuk masyarakat sekitar agar para siswa tidak hanya berdampak untuk sekolah saja tetapi juga dengan lingkungan yang ada di sekitarnya juga.</p>
       </div>
 
@@ -671,7 +782,7 @@
           <h4>JELAJAHI</h4>
           <ul class="footer-links white-links">
             <li><a href="index.html">Home</a></li>
-            <li><a href="program.html">Program</a></li>
+            <li><a href="jurusan.html">Program</a></li>
             <li><a href="prestasi.html">Prestasi</a></li>
             <li><a href="profil.html">Profil</a></li>
           </ul>
