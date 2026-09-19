@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMAIT AL-KAHFI - Jurusan</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ================= RESET & DASAR ================= */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #9cb887; /* Warna dasar hijau sage */
+      color: #1f2913;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ================= HEADER / NAVBAR ================= */
+    header {
+      background: rgba(156, 184, 135, 0.92);
+      backdrop-filter: blur(8px);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.5px;
+    }
+
+    .brand-logo img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #2b3d22;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: #12200a;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #3b5a2b;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    .btn-contact {
+      background: rgba(76, 114, 69, 0.85);
+      color: #fff;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn-contact:hover {
+      background: #3a5833;
+      transform: translateY(-2px);
+    }
+
+    /* ================= SECTION HERO KURIKULUM & TABEL ================= */
+    .kurikulum-section {
+      padding: 50px 0 30px;
+    }
+
+    .kurikulum-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .kurikulum-info h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #243d1a;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+
+    .kurikulum-info .subtitle {
+      font-size: 1.05rem;
+      color: #2e4420;
+      line-height: 1.6;
+      max-width: 480px;
+      margin-bottom: 24px;
+      font-weight: 500;
+    }
+
+    /* ================= TABEL JUMLAH SISWA (KRITERIA: TABLE) ================= */
+    .table-container {
+      max-width: 360px;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(8px);
+      border: 1.5px dashed rgba(255, 255, 255, 0.5);
+      border-radius: 14px;
+      padding: 8px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .siswa-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .siswa-table th,
+    .siswa-table td {
+      padding: 12px 18px;
+    }
+
+    .siswa-table th {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #172b0e;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .siswa-table td.jurusan-col {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #f1f8ed;
+      letter-spacing: 1px;
+    }
+
+    .siswa-table td.kuota-col {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-align: right;
+    }
+
+    .siswa-table tr:not(:last-child) td {
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.25);
+    }
+
+    /* Foto Praktikum Lab */
+    .kurikulum-image-wrapper {
+      position: relative;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+      background: #e6c039;
+    }
+
+    .kurikulum-image-wrapper img {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .kurikulum-image-wrapper:hover img {
+      transform: scale(1.04);
+    }
+
+    /* ================= SECTION DAFTAR JURUSAN (KRITERIA: H2, P, UL) ================= */
+    .details-section {
+      padding: 30px 0 50px;
+    }
+
+    .major-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 30px;
+    }
+
+    .card-box {
+      background: rgba(76, 114, 69, 0.55);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Target kriteria: h2 */
+    .card-box h2 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #172b0e;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+
+    /* Target kriteria: p */
+    .card-box p {
+      font-size: 0.9rem;
+      color: #f1f8ed;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    /* Target kriteria: ul & li */
+    .curriculum-list {
+      list-style-type: square;
+      padding-left: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .curriculum-list li {
+      font-size: 0.95rem;
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    /* Program Tambahan */
+    .extra-card {
+      width: 100%;
+    }
+
+    .extra-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    /* ================= BARIS LOKASI & SOSMED ================= */
+    .quick-info-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0 50px;
+    }
+
+    .location-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #2b3d22;
+      transition: color 0.3s;
+    }
+
+    .location-link:hover {
+      color: #101c09;
+    }
+
+    .location-icon {
+      font-size: 1.4rem;
+      color: #d94336;
+    }
+
+    .social-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      color: white;
+      font-size: 1.25rem;
+      transition: transform 0.3s ease;
+    }
+
+    .social-links a:hover {
+      transform: scale(1.15);
+    }
+
+    .social-yt { background: #d92424; }
+    .social-fb { background: #1877f2; }
+    .social-ig {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background-color: #7b9968;
+      border-top: 3px solid rgba(0,0,0,0.06);
+      padding: 40px 0 30px;
+      color: #12200a;
+    }
+
+    .footer-top-banner {
+      background: rgba(144, 172, 126, 0.45);
+      border-radius: 14px;
+      padding: 24px 30px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      margin-bottom: 40px;
+      backdrop-filter: blur(5px);
+    }
+
+    .footer-logo img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+
+    .footer-title h3 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #14220b;
+      margin-bottom: 4px;
+    }
+
+    .footer-title p {
+      font-size: 0.95rem;
+      color: #27391d;
+      font-weight: 500;
+    }
+
+    .footer-content-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1.2fr 1.6fr;
+      gap: 40px;
+    }
+
+    .footer-col h4 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+      color: #101c09;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .white-links a {
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+
+    .white-links a:hover {
+      color: #e5ffe0;
+      transform: translateX(6px);
+    }
+
+    .info-links a {
+      color: #ffffff;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: 0.2s;
+    }
+
+    .info-links a:hover {
+      color: #203515;
+      transform: translateX(6px);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+      color: #14220b;
+      font-weight: 500;
+    }
+
+    .contact-item i {
+      font-size: 1.25rem;
+      margin-top: 3px;
+    }
+
+    /* ================= SCROLL REVEAL ANIMATIONS ================= */
+    .reveal {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .kurikulum-grid, .major-grid, .extra-grid, .footer-content-grid {
+        grid-template-columns: 1fr;
+      }
+      .quick-info-bar {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="container navbar">
+      <div class="brand-logo">
+        <img src="images/logo.png" onerror="this.src='https://via.placeholder.com/60/a1ba8e/1e3016?text=LOGO'" alt="Logo SMAIT Al-Kahfi">
+        <div>
+          <span>SMAIT</span><br>
+          <span>AL-KAHFI</span>
+        </div>
+      </div>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">HOME</a></li>
+          <li><a href="program.html" class="nav-link active">PROGRAM</a></li>
+          <li><a href="prestasi.html" class="nav-link">PRESTASI</a></li>
+          <li><a href="profil.html" class="nav-link">PROFIL</a></li>
+          <li><a href="kontak.html" class="btn-contact">KONTAK</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= HERO KURIKULUM & TABEL ================= -->
+  <section class="kurikulum-section container">
+    <div class="kurikulum-grid">
+      
+      <!-- Sisi Kiri: Teks & Tabel Kuota Siswa -->
+      <div class="kurikulum-info reveal">
+        <h1>KURIKULUM</h1>
+        <p class="subtitle">Pendidikan nasional dan pesantren, didukung tenaga pendidik yang profesional.</p>
+        
+        <!-- KRITERIA: Tabel jumlah siswa tiap jurusan menggunakan <table> -->
+        <div class="table-container">
+          <table class="siswa-table">
+            <thead>
+              <tr>
+                <th>Jurusan</th>
+                <th style="text-align: right;">Kuota Siswa</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="jurusan-col">IPA</td>
+                <td class="kuota-col">90</td>
+              </tr>
+              <tr>
+                <td class="jurusan-col">IPS</td>
+                <td class="kuota-col">35</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Sisi Kanan: Foto Praktikum Lab -->
+      <div class="kurikulum-image-wrapper reveal">
+        <img src="images/kurikulum-lab.jpg" onerror="this.src='https://images.unsplash.com/photo-1532094349884-543bc11b234d?q=80&w=800&auto=format&fit=crop'" alt="Praktikum Sains SMAIT Al-Kahfi">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= DAFTAR JURUSAN (KRITERIA: <h2>, <p>, <ul>) ================= -->
+  <section class="details-section container">
+    
+    <div class="major-grid">
+      
+      <!-- Kartu Jurusan IPA -->
+      <div class="card-box reveal">
+        <h2>JURUSAN IPA</h2>
+        <p>Fokus pada penguasaan sains eksperimental, analitis, serta penalaran kuantitatif terintegrasi nilai Islam.</p>
+        <ul class="curriculum-list">
+          <li>PKN</li>
+          <li>Bahasa Indonesia</li>
+          <li>Bahasa Inggris</li>
+          <li>Matematika Wajib</li>
+          <li>Karya Ilmiah</li>
+          <li>Fisika</li>
+          <li>Kimia</li>
+          <li>Biologi</li>
+          <li>Matematika Minat</li>
+        </ul>
+      </div>
+
+      <!-- Kartu Jurusan IPS -->
+      <div class="card-box reveal">
+        <h2>JURUSAN IPS</h2>
+        <p>Mempersiapkan siswa memahami dinamika sosial, ekonomi, kepemimpinan publik, dan wawasan kebangsaan global.</p>
+        <ul class="curriculum-list">
+          <li>PKN</li>
+          <li>Bahasa Indonesia</li>
+          <li>Bahasa Inggris</li>
+          <li>Matematika Wajib</li>
+          <li>Karya Ilmiah</li>
+          <li>Sosiologi</li>
+          <li>Geografi</li>
+          <li>Ekonomi</li>
+          <li>Sejarah Peminatan</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Box Program Tambahan -->
+    <div class="card-box extra-card reveal">
+      <h2>PROGRAM TAMBAHAN</h2>
+      <p>Pengayaan kompetensi akademik dan keterampilan santri di luar kurikulum reguler.</p>
+      <div class="extra-grid">
+        <ul class="curriculum-list">
+          <li>Camp OSN</li>
+          <li>Camp Bahasa Inggris</li>
+          <li>Gerakan Literasi Sekolah</li>
+        </ul>
+        <ul class="curriculum-list">
+          <li>Panggung Ekspresi Bahasa Arab &amp; Inggris</li>
+          <li>Semester Pendek</li>
+          <li>Pengelolaan Laboratorium Komputer dan Sains</li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ================= BARIS LOKASI & SOSMED ================= -->
+  <div class="container quick-info-bar reveal">
+    <a href="https://www.google.com/maps/place/SMAIT+AL+KAHFI/@-6.744819,106.820627,14z/data=!4m6!3m5!1s0x2e69cb48b31fe2f9:0x26caeb01aae697c4!8m2!3d-6.7448192!4d106.8206269!16s%2Fg%2F11k51rl3y2?hl=id-ID&entry=ttu&g_ep=EgoyMDI2MDkxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="location-link">
+      <i class="fa-solid fa-location-dot location-icon"></i>
+      <span>Jl. SPN PMJ, Desa Srogol, Cigombong, Bogor</span>
+    </a>
+
+    <div class="social-links">
+      <a href="https://www.youtube.com/@SMAITALKAHFI" target="_blank" class="social-yt" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+      <a href="https://facebook.com" target="_blank" class="social-fb" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      <a href="https://www.instagram.com/smaitalkahfiofficial/" target="_blank" class="social-ig" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+  </div>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="container">
+      
+      <!-- Banner Logo & Visi Footer -->
+      <div class="footer-top-banner">
+        <div class="footer-logo">
+          <img src="images/logo.png" onerror="this.src='https://via.placeholder.com/80/a1ba8e/1e3016?text=LOGO'" alt="Logo SMAIT Al-Kahfi">
+        </div>
+        <div class="footer-title">
+          <h3>SMAIT AL-KAHFI</h3>
+          <p>Menjadi sekolah unggul dalam membentuk kader muslim pemimpin dunia.</p>
+        </div>
+      </div>
+
+      <!-- Grid Kolom Footer -->
+      <div class="footer-content-grid">
+        <div class="footer-col">
+          <h4>JELAJAHI</h4>
+          <ul class="footer-links white-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="jurusan.html">Program</a></li>
+            <li><a href="prestasi.html">Prestasi</a></li>
+            <li><a href="profil.html">Profil</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>INFORMASI</h4>
+          <ul class="footer-links info-links">
+            <li><a href="#">Kesiswaan</a></li>
+            <li><a href="#">Kalender Akademik</a></li>
+            <li><a href="#">Kurikulum</a></li>
+            <li><a href="#">Alumni</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Kunjungi kami</h4>
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Jl. SPN PMJ, Desa Srogol, Cigombong, Bogor</span>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span>(0251) 8224388</span>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span>samitalkahfi@gmail.com</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= SCRIPT ================= -->
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const revealOnScroll = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(reveal => revealOnScroll.observe(reveal));
+  </script>
+</body>
+</html>
