@@ -57,7 +57,8 @@ Form kontak menggunakan:
 ## Wibsite asli sekolah
 <img width="825" height="831" alt="image" src="https://github.com/user-attachments/assets/fc4ca752-7d80-4901-96f8-fcf861bb773d" />
 
-link website asli
+
+- link website asli
 ```
 https://smaitalkahfi.sch.id/
 ```
